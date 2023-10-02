@@ -36,12 +36,12 @@ class Contact(View):
             if(name == "" or email == "" or phone == "" or subject == "" or message == ""): 
                 data = {"title": "Liên Hệ Với Chúng Tôi", "errorMessage": "Vui lòng nhập đủ thông tin!"}
                 return render(request, self.template_name, data)
-            
+            # Start with 03 05 07 08 09 and have to be 10 digit
             phone_regex = re.compile(r'^(03|05|07|08|09)\d{8}$')
             if(bool(phone_regex.match(phone)) == False):
                 data = {"title": "Liên Hệ Với Chúng Tôi", "errorMessage": "Vui lòng nhập số điện thoại chính xác!"}
                 return render(request, self.template_name, data)
-            
+            # x@x.x with x is letters, digit, _, . or -
             pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
             if(bool(re.match(pattern, email)) == False):
                 data = {"title": "Liên Hệ Với Chúng Tôi", "errorMessage": "Vui lòng nhập email hợp lệ!"}

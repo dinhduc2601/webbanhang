@@ -22,7 +22,7 @@ class SanPham(models.Model):
     TrangThai = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     class Meta:
         verbose_name = "Sản Phẩm"
         verbose_name_plural = "Sản Phẩm"

@@ -114,10 +114,14 @@ class DetailProduct(View):
         
         try:
             sanpham = SanPham.objects.all().get(DuongDan=slug)
+            print("Done sanpham")
             sanphamlienquan = SanPham.objects.all().filter(ChuyenMuc=sanpham.ChuyenMuc).order_by('?')[:4]
+            print("Done sanphamlienquan")
             data = {"sanpham": sanpham, "title": "Sản Phẩm " + sanpham.TenSanPham, "sanphamlienquan": sanphamlienquan}
+            print("Done parse data")
             return render(request, self.template_name, data)
-        except:
+        except Exception as ex:
+            print (ex)
             return render(request, template_error)
         
 

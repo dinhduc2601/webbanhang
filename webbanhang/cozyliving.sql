@@ -734,20 +734,20 @@ INSERT INTO `product_sanpham` (`id`, `TenSanPham`, `GiaKhuyenMai`, `GiaBan`, `Mo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_sanpham_mausac`
+-- Table structure for table `product_sanpham_MauSac`
 --
 
-CREATE TABLE `product_sanpham_mausac` (
+CREATE TABLE `product_sanpham_MauSac` (
   `id` bigint(20) NOT NULL,
   `sanpham_id` bigint(20) NOT NULL,
   `mausac_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `product_sanpham_mausac`
+-- Dumping data for table `product_sanpham_MauSac`
 --
 
-INSERT INTO `product_sanpham_mausac` (`id`, `sanpham_id`, `mausac_id`) VALUES
+INSERT INTO `product_sanpham_MauSac` (`id`, `sanpham_id`, `mausac_id`) VALUES
 (44, 2, 3),
 (48, 3, 1),
 (45, 3, 3),
@@ -1088,9 +1088,9 @@ ALTER TABLE `product_sanpham`
   ADD KEY `product_sanpham_DuongDan_8974332b` (`DuongDan`);
 
 --
--- Indexes for table `product_sanpham_mausac`
+-- Indexes for table `product_sanpham_MauSac`
 --
-ALTER TABLE `product_sanpham_mausac`
+ALTER TABLE `product_sanpham_MauSac`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `product_sanpham_MauSac_sanpham_id_mausac_id_58907eba_uniq` (`sanpham_id`,`mausac_id`),
   ADD KEY `product_sanpham_MauSac_mausac_id_d0c72e0e_fk_product_mausac_id` (`mausac_id`);
@@ -1255,9 +1255,9 @@ ALTER TABLE `product_sanpham`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `product_sanpham_mausac`
+-- AUTO_INCREMENT for table `product_sanpham_MauSac`
 --
-ALTER TABLE `product_sanpham_mausac`
+ALTER TABLE `product_sanpham_MauSac`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --

@@ -72,7 +72,8 @@ class PayCart(View):
             phivat = ThongTin.objects.all().get(LoaiThongTin=loaithongtin).GiaTri
             thanhtoan = int(total_price + int(phiship)) 
             thanhtoan = thanhtoan + int(thanhtoan * int(phivat) / 100)
-            
+
+            # Start with 03 05 07 08 09 and have to be 10 digit
             phone_regex = re.compile(r'^(03|05|07|08|09)\d{8}$')
             if(bool(phone_regex.match(phone)) == False):
                 data = {"title": "Thanh Toán", "khachhang": khachhang, "phiship": phiship, "phivat": phivat, "thanhtoan": thanhtoan, "giohang": giohang, "errorMessage": "Vui Lòng Nhập Số Điện Thoại Hợp Lệ!"}

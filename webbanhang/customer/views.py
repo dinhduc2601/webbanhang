@@ -52,17 +52,17 @@ class Customer(View):
             if phone == "" or hodem == "" or ten == "" or email == "":
                 data['message'] = "Vui lòng nhập đủ thông tin!"
                 return render(request, self.template_name, data)
-            
+            # x@x.x with x is letters, digit, _, . or -
             pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
             if(bool(re.match(pattern, email)) == False):
                 data['message'] = "Email không hợp lệ!"
                 return render(request, self.template_name, data)
-            
+            #Only letter and space and can't be blank or space only
             ho_dem_pattern = r'^[a-zA-Z ]+$'
             if(re.search(ho_dem_pattern, hodem) == False):
                 data['message'] = "Họ tên đệm không không hợp lệ!"
                 return render(request, self.template_name, data)
-            
+            #Only letter and no space
             ten_pattern = r'^[a-zA-Z]+$'
             if(re.search(ten_pattern, ten) == False):
                 data['message'] = "Tên không không hợp lệ!"
@@ -169,7 +169,7 @@ class CustomerLogin(View):
             if taikhoan == "" or matkhau == "":
                 data['message'] = "Tài khoản hoặc mật khẩu không được trống!"
                 return render(request, self.template_name, data)
-            
+            #Only letter and digit with _ or -
             pattern = r'^[a-zA-Z0-9_-]+$'
             if re.match(pattern, taikhoan) == False:
                 data['message'] = "Tài khoản không hợp lệ"
@@ -220,7 +220,7 @@ class CustomerRegister(View):
             if re.match(pattern, taikhoan) == False:
                 data['message'] = "Tài khoản không hợp lệ!"
                 return render(request, self.template_name, data)
-            
+            # x@x.x with x is letters, digit, _, . or -
             pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
             if(bool(re.match(pattern, email)) == False):
                 data['message'] = "Email không hợp lệ!"
@@ -229,12 +229,12 @@ class CustomerRegister(View):
             if(matkhau != matkhau2):
                 data['message'] = "Mật khẩu nhập lại không chính xác!"
                 return render(request, self.template_name, data)
-            
+            # letter with space only
             ho_dem_pattern = r'^[a-zA-Z ]+$'
             if(re.search(ho_dem_pattern, hodem) == False):
                 data['message'] = "Họ tên đệm không không hợp lệ!"
                 return render(request, self.template_name, data)
-            
+            # letter only
             ten_pattern = r'^[a-zA-Z]+$'
             if(re.search(ten_pattern, ten) == False):
                 data['message'] = "Tên không không hợp lệ!"
